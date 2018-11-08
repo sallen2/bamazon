@@ -34,9 +34,9 @@ function start() {
         viewLowInven();
       } else if (res.options === "Add to Inventory") {
         addInven();
-      } else if(res.options === "Add New Product"){
-        addProduct();
-      }else {
+      } else if (res.options === "Add New Product") {
+        addProductPrompt();
+      } else {
         console.log("working!");
       }
     });
@@ -52,7 +52,27 @@ function viewProducts() {
       } | $${test.price} | Quantity: ${test.stock_quantity}|
             `);
     });
+    // again();
   });
+}
+
+function anythingElse() {
+  inquirer
+    .prompt([
+      {
+        message: "anything else?",
+        type: "input",
+        name: "ans"
+      }
+    ])
+    .then(res => {
+      if (res.ans === "y") {
+        start();
+      } else {
+        console.log("bye bye!");
+        connection.end();
+      }
+    });
 }
 
 function viewLowInven() {
@@ -70,6 +90,7 @@ LOW INVENTORY
 |Product: ${ans.product_name} | Quantity: ${ans.stock_quantity}|
                           `);
     });
+    again();
   });
 }
 
@@ -103,7 +124,7 @@ function addInven() {
             (err, resp) => {
               if (err) throw err;
               console.log("UPDATED!");
-              again();
+              anythingElse();
             }
           );
         });
@@ -112,8 +133,68 @@ function addInven() {
   viewProducts();
 }
 
-function addProduct(){
+function addProductPrompt() {
+  inquirer
+    .prompt([
+      {
+        message: "Do you want to add a new product? (y/n)",
+        type: "input",
+        name: "ans"
+      }
+    ])
+    .then(res => {
+      if (res.ans === "y") {
+        addProduct();
+      }
+    });
+}
 
+function addProduct() {
+  inquirer
+    .prompt([
+      {
+        message: "product name:",
+        type: "input",
+        name: "pName"
+      },
+      {
+        message: "department name:",
+        type: "list",
+        name: "pDepartment",
+        choices: [
+          "Electronics",
+          "Sports and Outdoors",
+          "Food and Grocery",
+          "Movie, Music and Games"
+        ]
+      },
+      {
+        message: "price:",
+        type: "input",
+        name: "pPrice"
+      },
+      {
+        message: "stock quantity:",
+        type: "input",
+        name: "pStock"
+      }
+    ])
+    .then(res => {
+      connection.query(
+        "INSERT INTO products SET ?",
+        {
+          product_name: res.pName,
+          department_name: res.pDepartment,
+          price: res.pPrice,
+          stock_quantity: res.pStock
+        },
+        (err, res) => {
+          if (err) throw err;
+          console.log(`Product Added!`);
+          again();
+        }
+      );
+    });
 }
 
 function again() {
