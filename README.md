@@ -14,5 +14,5 @@
 
 ### Bamazon Manager app
 
-1) Start manager app with the command 'node bamazonManager.js'
+1) Start manager app with the command 'node bamazonManager.js'. You should see a list of options after typing the command.
 ![Alt Text](https://cl.ly/18344d5bd7af/Screen%252520Recording%2525202018-11-08%252520at%25252011.28%252520PM.gif)
