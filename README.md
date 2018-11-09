@@ -19,7 +19,7 @@
 
 #### List options
 
-1) View products for sell gives you a list of the products
-2) View low inventory give you a list of inventory lower than 500
-3) Add inventory lets you add more inventory to a specific product
-4) Add new product lets you add another product to the store
+A) View products for sell gives you a list of the products
+B) View low inventory give you a list of inventory lower than 500
+C) Add inventory lets you add more inventory to a specific product
+D) Add new product lets you add another product to the store
