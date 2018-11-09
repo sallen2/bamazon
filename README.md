@@ -7,3 +7,5 @@
 
 2) Enter the id of the item you want to buy
 ![Alt Text](https://cl.ly/789b00edbf83/Screen%252520Recording%2525202018-11-08%252520at%25252011.20%252520PM.gif)
+3) Type in how many you want and Bamazon will give your total
+![Alt Text](https://cl.ly/92b941780740/Screen%252520Recording%2525202018-11-08%252520at%25252011.22%252520PM.gif)
