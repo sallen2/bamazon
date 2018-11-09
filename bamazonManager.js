@@ -30,6 +30,9 @@ function start() {
     .then(res => {
       if (res.options === "View Products for Sale") {
         viewProducts();
+        setTimeout(()=>{
+          again();
+        },10)
       } else if (res.options === "View Low Inventory") {
         viewLowInven();
       } else if (res.options === "Add to Inventory") {
@@ -52,7 +55,6 @@ function viewProducts() {
       } | $${test.price} | Quantity: ${test.stock_quantity}|
             `);
     });
-    // again();
   });
 }
 
