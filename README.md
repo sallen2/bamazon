@@ -1,4 +1,4 @@
-# bamazon
+# :boom: bamazon :boom:
 
 ## Amazon for the command line
 
