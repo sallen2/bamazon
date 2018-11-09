@@ -16,3 +16,10 @@
 
 1) Start manager app with the command 'node bamazonManager.js'. You should see a list of options after typing the command.
 ![Alt Text](https://cl.ly/18344d5bd7af/Screen%252520Recording%2525202018-11-08%252520at%25252011.28%252520PM.gif)
+
+#### List options
+
+1) View products for sell gives you a list of the products
+2) View low inventory give you a list of inventory lower than 500
+3) Add inventory lets you add more inventory to a specific product
+4) Add new product lets you add another product to the store
